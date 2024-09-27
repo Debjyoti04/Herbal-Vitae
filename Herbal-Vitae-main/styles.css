@@ -1,0 +1,238 @@
+/* ----- style.css ----- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Full-screen video preloader */
+#video-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Background in case the video doesn't cover the whole screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it stays on top of everything */
+  }
+  
+  #video-preloader video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the screen while maintaining aspect ratio */
+  }
+  
+  /* Hide the main content by default */
+  #main-content {
+    display: none;
+  }
+
+.mysvg{
+    position: absolute;
+    top: 105px; /* adjust as needed */
+    left: 700px; /* adjust as needed */
+    filter: drop-shadow(20px 20px 20px black);
+    
+}
+
+svg path {
+    fill: #afda4b0a;
+    stroke: #ffffff;
+    stroke-width: 0.5;
+    transition: transform 0.5s ease, box-shadow 0.3s ease, fill 0.5s ease, stroke-width 0.2s ease;
+    transform-origin: center; /* Ensures the transformation occurs from the center of the path */
+    backface-visibility: hidden; /* Prevents rendering of the back side of elements */
+    filter: drop-shadow(10px 10px 20px black);
+}
+
+
+svg path:hover {
+    fill: #60bb2c;
+    transform: scale(1.5);
+    
+    stroke-width: 0.75; /* Slight increase in stroke width for emphasis */
+    cursor: pointer;
+    transform: translateY(-10px); /* Moves the path upwards slightly */
+    box-shadow: 0 10px px rgba(0, 0, 0, 0.3); /* Moderate shadow for subtle depth */
+    z-index: 10; /* Ensures the hovered path appears above others */
+}
+
+#state-tooltip {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: black;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    pointer-events: none; /* So it doesn't block interactions with the map */
+    z-index: 1000;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #203a06;
+}
+
+.navbar {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.menu-bar {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(252, 247, 247);
+    margin: 4px 0;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+.brand a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url(./assets/main\ background3.jpg) no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.content {
+    position: relative;
+    color: white;
+    z-index: 2;
+}
+
+.hero-logo {
+    max-width: 300px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    flex: 1;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    width: 20px;;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #FFD700;
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #FFD700;
+    color: black;
+}
+
+.map{
+    margin-right: 10px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 50%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #77bf0cbd;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
